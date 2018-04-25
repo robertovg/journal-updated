@@ -8,6 +8,11 @@ import { setContext } from 'apollo-link-context';
 import Navigator from './Navigator';
 import { getToken } from './loginUtils';
 
+// To avoid https://github.com/facebook/react-native/issues/9599
+if (typeof global.self === 'undefined') {
+  global.self = global;
+}
+
 const authLink = setContext(async (req, { headers }) => {
   const token = await getToken();
   return {
