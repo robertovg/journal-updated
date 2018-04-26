@@ -22,6 +22,7 @@ class Login extends Component {
           }
           title={this.state.register ? 'Login' : 'Register'}
         />
+        <Text>v 0.11</Text>
       </View>
     );
   }

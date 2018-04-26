@@ -1,12 +1,12 @@
 {
   "expo": {
     "name": "journal-updated",
-    "description": "This project is really great.",
+    "description": "Updated version of Journal LevelUp tutorial output",
     "slug": "journal-updated",
     "privacy": "public",
-    "sdkVersion": "26.0.0",
+    "sdkVersion": "27.0.0",
     "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,9 +17,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     }

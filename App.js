@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { HttpLink } from 'apollo-link-http';
@@ -33,12 +33,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export default class App extends Component {
-  render() {
-    return (
-      <ApolloProvider client={client}>
-        <Navigator />
-      </ApolloProvider>
-    );
-  }
-}
+const App = () => (
+  <ApolloProvider client={client}>
+    <Navigator />
+  </ApolloProvider>
+);
+
+export default App;
