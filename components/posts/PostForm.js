@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Button } from 'react-native';
+import { StyleSheet, Button, ScrollView } from 'react-native';
 import { Form, Item, Input, Label } from 'native-base';
 
 class PostForm extends Component {
@@ -18,22 +18,24 @@ class PostForm extends Component {
 
   render() {
     return (
-      <Form>
-        <Item floatingLabel>
-          <Label>Title</Label>
-          <Input onChangeText={title => this.setState({ title })} value={this.state.title} />
-        </Item>
-        <Item floatingLabel>
-          <Label>Body</Label>
-          <Input
-            multiline
-            style={styles.body}
-            onChangeText={body => this.setState({ body })}
-            value={this.state.body}
-          />
-        </Item>
-        <Button title="Save Post" onPress={this.submitForm} />
-      </Form>
+      <ScrollView keyboardShouldPersistTaps="never">
+        <Form>
+          <Item floatingLabel>
+            <Label>Title</Label>
+            <Input onChangeText={title => this.setState({ title })} value={this.state.title} />
+          </Item>
+          <Item floatingLabel>
+            <Label>Body</Label>
+            <Input
+              multiline
+              style={styles.body}
+              onChangeText={body => this.setState({ body })}
+              value={this.state.body}
+            />
+          </Item>
+          <Button title="Save Post" onPress={this.submitForm} />
+        </Form>
+      </ScrollView>
     );
   }
 }

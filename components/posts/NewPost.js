@@ -72,13 +72,13 @@ export default graphql(newPostQuery, {
  * Prop types
  */
 NewPost.propTypes = {
-  newPost: PropTypes.object,
+  newPost: PropTypes.func,
   navigation: PropTypes.object,
   screenProps: PropTypes.object,
 };
 
 NewPost.defaultProps = {
-  newPost: {},
+  newPost() {},
   navigation: {},
   screenProps: {},
 };

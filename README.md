@@ -30,7 +30,7 @@ exp publish
 * [ ] If we update the title, we don't have it correctly updated (Fixme)
 * [x] fix and align the loading
 * [ ] fix some styles in smaller IPhone
-* [ ] have the possibility of hiding the keyboard when clicking out of the Post textarea
+* [x] have the possibility of hiding the keyboard when clicking out of the Post textarea. Using `keyboardShouldPersistTaps` from `ScrollView`.
 * [ ] Change color of indicators form IPhone ( network, time, etc)
 * [x] Fix the problem with `Nested React Native projects result in TypeError: undefined is not an object (evaluating self.fetch)` published in [react-native official github](https://github.com/facebook/react-native/issues/9599)
 * [x] Using expo `react-native` branch to avoid expo problem
