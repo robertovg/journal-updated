@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -8,15 +9,16 @@ import { signIn } from '../../loginUtils';
 
 class CreateUser extends Component {
   createUser = async ({ email, password }) => {
+    const { createUser, signinUser, client } = this.props;
     try {
-      const user = await this.props.createUser({
+      await createUser({
         variables: { email, password },
       });
-      const signin = await this.props.signinUser({
+      const signin = await signinUser({
         variables: { email, password },
       });
       signIn(signin.data.signinUser.token);
-      this.props.client.resetStore();
+      client.resetStore();
     } catch (e) {
       console.log(e);
     }
@@ -32,7 +34,7 @@ class CreateUser extends Component {
   }
 }
 
-const createUser = gql`
+const createUserMutation = gql`
   mutation createUser($email: String!, $password: String!) {
     createUser(authProvider: { email: { email: $email, password: $password } }) {
       id
@@ -40,7 +42,7 @@ const createUser = gql`
   }
 `;
 
-const signinUser = gql`
+const signinUserMutation = gql`
   mutation signinUser($email: String!, $password: String!) {
     signinUser(email: { email: $email, password: $password }) {
       token
@@ -49,6 +51,20 @@ const signinUser = gql`
 `;
 
 export default compose(
-  graphql(signinUser, { name: 'signinUser' }),
-  graphql(createUser, { name: 'createUser' })
+  graphql(signinUserMutation, { name: 'signinUser' }),
+  graphql(createUserMutation, { name: 'createUser' })
 )(CreateUser);
+/**
+ * Prop types
+ */
+CreateUser.propTypes = {
+  createUser: PropTypes.func,
+  signinUser: PropTypes.func,
+  client: PropTypes.object,
+};
+
+CreateUser.defaultProps = {
+  createUser() {},
+  signinUser() {},
+  client: {},
+};

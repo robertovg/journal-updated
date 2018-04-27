@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { StyleSheet, Button } from 'react-native';
 import { Form, Item, Input, Label } from 'native-base';
 
-export default class PostForm extends Component {
-  static defaultProps = {
-    post: {},
-  };
-
+class PostForm extends Component {
   state = {
     title: this.props.post.title || '',
     body: this.props.post.body || '',
@@ -46,3 +43,17 @@ const styles = StyleSheet.create({
     borderColor: '#333',
   },
 });
+
+export default PostForm;
+/**
+ * Prop types
+ */
+PostForm.propTypes = {
+  post: PropTypes.object,
+  onSubmit: PropTypes.func,
+};
+
+PostForm.defaultProps = {
+  post: {},
+  onSubmit() {},
+};

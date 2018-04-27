@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ActivityIndicator } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -66,3 +67,18 @@ export default graphql(newPostQuery, {
     refetchQueries: ['userQuery'],
   },
 })(NewPost);
+
+/**
+ * Prop types
+ */
+NewPost.propTypes = {
+  newPost: PropTypes.object,
+  navigation: PropTypes.object,
+  screenProps: PropTypes.object,
+};
+
+NewPost.defaultProps = {
+  newPost: {},
+  navigation: {},
+  screenProps: {},
+};

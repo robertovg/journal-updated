@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, ActivityIndicator } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -17,11 +18,11 @@ class UpdatePost extends Component {
   };
 
   updatePost = ({ title, body }) => {
-    const { updatePost, navigation, screenProps } = this.props;
+    const { updatePost, navigation, screenProps, Post } = this.props;
     this.setState({ loading: true });
     updatePost({
       variables: {
-        id: this.props.Post.id,
+        id: Post.id,
         title,
         body,
         userId: screenProps.user.id,
@@ -49,7 +50,7 @@ class UpdatePost extends Component {
   }
 }
 
-const updatePost = gql`
+const updatePostMutation = gql`
   mutation updatePost($id: ID!, $title: String!, $body: String!, $userId: ID!) {
     updatePost(id: $id, title: $title, body: $body, userId: $userId) {
       id
@@ -68,10 +69,10 @@ const postQuery = gql`
 `;
 
 export default compose(
-  graphql(updatePost, {
+  graphql(updatePostMutation, {
     name: 'updatePost',
     options: {
-      refetchQueries: ['Post']
+      refetchQueries: ['Post'],
     },
   }),
   graphql(postQuery, {
@@ -83,3 +84,19 @@ export default compose(
     }),
   })
 )(UpdatePost);
+/**
+ * Prop types
+ */
+UpdatePost.propTypes = {
+  updatePost: PropTypes.func,
+  navigation: PropTypes.object,
+  screenProps: PropTypes.object,
+  Post: PropTypes.object,
+};
+
+UpdatePost.defaultProps = {
+  updatePost() {},
+  navigation: {},
+  screenProps: {},
+  Post: {},
+};

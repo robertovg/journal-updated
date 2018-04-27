@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -6,7 +7,7 @@ import { Fab, Icon } from 'native-base';
 
 import navStyles from '../../styles/navStyles';
 
-class Post extends Component {
+class PostElement extends Component {
   // FIXME roberto if we update the title, we don't have it correctly updated
   static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.title,
@@ -14,8 +15,8 @@ class Post extends Component {
   });
 
   updatePost = () => {
-    const { Post } = this.props;
-    this.props.navigation.navigate('UpdatePost', {
+    const { Post, navigation } = this.props;
+    navigation.navigate('UpdatePost', {
       id: Post.id,
       title: Post.title,
     });
@@ -26,7 +27,7 @@ class Post extends Component {
     if (loading) return <ActivityIndicator size="large" />;
     return (
       <View style={styles.container}>
-        <Text style={styles.bodyText}>{this.props.Post.body}</Text>
+        <Text style={styles.bodyText}>{Post.body}</Text>
         <Fab style={styles.newPost} onPress={this.updatePost}>
           <Icon name="create" />
         </Fab>
@@ -65,4 +66,18 @@ export default graphql(postQuery, {
       id: navigation.state.params.id,
     },
   }),
-})(Post);
+})(PostElement);
+/**
+ * Prop types
+ */
+PostElement.propTypes = {
+  Post: PropTypes.object,
+  loading: PropTypes.bool,
+  navigation: PropTypes.object,
+};
+
+PostElement.defaultProps = {
+  Post: {},
+  loading: true,
+  navigation: {},
+};

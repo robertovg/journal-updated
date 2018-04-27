@@ -5,26 +5,19 @@ import { StackNavigator } from 'react-navigation';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import Post from './components/posts/Post';
+import PostElement from './components/posts/PostElement';
 import NewPost from './components/posts/NewPost';
 import UpdatePost from './components/posts/UpdatePost';
 
 import Login from './components/user/Login';
 import PostsHome from './components/posts/PostsHome';
 
-const styles = StyleSheet.create({
-  justLoadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
-
 const Navigator = StackNavigator({
   Home: {
     screen: PostsHome,
   },
   Post: {
-    screen: Post,
+    screen: PostElement,
   },
   NewPost: {
     screen: NewPost,
@@ -44,6 +37,13 @@ const NavWrapper = ({ loading, user }) => {
   if (!user) return <Login />;
   return <Navigator screenProps={{ user }} />;
 };
+
+const styles = StyleSheet.create({
+  justLoadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
 
 const userQuery = gql`
   query userQuery {

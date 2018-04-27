@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import PropTypes from 'prop-types';
+import { Button } from 'react-native';
 import { Form, Item, Input, Label } from 'native-base';
 
-export default class UserForm extends Component {
+class UserForm extends Component {
   state = {
     email: '',
     password: '',
@@ -40,3 +41,17 @@ export default class UserForm extends Component {
     );
   }
 }
+
+export default UserForm;
+/**
+ * Prop types
+ */
+UserForm.propTypes = {
+  onSubmit: PropTypes.func,
+  type: PropTypes.string,
+};
+
+UserForm.defaultProps = {
+  onSubmit() {},
+  type: 'Register',
+};
