@@ -30,6 +30,8 @@ class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginLeft: 30,
+    marginRight: 30,
     justifyContent: 'center',
   },
 });

@@ -26,7 +26,7 @@ exp publish
 
 * [x] add .eslint and right .babel
 * [x] Fixing lint problems (translating stateless components to pure function, adding PropTypes to props, avoiding duplicated code, removing unused import,refactoring components...) --> from `$ ./node_modules/.bin/eslint ./components`
-* [ ] Moving the graphcool url to a configurable property so we don't have to publish in the code.
+* [x] Moving the graphcool url to a configurable property so we don't have to publish in the code. Resolved with `react-native-dotenv`
 * [ ] If we update the title, we don't have it correctly updated (Fixme)
 * [x] fix and align the loading
 * [ ] fix some styles in smaller IPhone

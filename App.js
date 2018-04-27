@@ -4,6 +4,7 @@ import { ApolloProvider } from 'react-apollo';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
+import { GRAPHQL_SERVER_URL } from 'react-native-dotenv';
 
 import Navigator from './Navigator';
 import { getToken } from './loginUtils';
@@ -23,7 +24,7 @@ const authLink = setContext(async (req, { headers }) => {
   };
 });
 const httpLink = new HttpLink({
-  uri: 'https://api.graph.cool/simple/v1/cjfo306041yxb0190ext4ws8f',
+  uri: GRAPHQL_SERVER_URL,
 });
 
 const link = authLink.concat(httpLink);
