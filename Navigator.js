@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -11,6 +10,7 @@ import UpdatePost from './components/posts/UpdatePost';
 
 import Login from './components/user/Login';
 import PostsHome from './components/posts/PostsHome';
+import LoadingStyled from './components/utils/LoadingStyled';
 
 const Navigator = StackNavigator({
   Home: {
@@ -28,22 +28,10 @@ const Navigator = StackNavigator({
 });
 
 const NavWrapper = ({ loading, user }) => {
-  if (loading)
-    return (
-      <View style={styles.justLoadingContainer}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
+  if (loading) return LoadingStyled;
   if (!user) return <Login />;
   return <Navigator screenProps={{ user }} />;
 };
-
-const styles = StyleSheet.create({
-  justLoadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-});
 
 const userQuery = gql`
   query userQuery {

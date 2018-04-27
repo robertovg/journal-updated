@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 import { Fab, Icon } from 'native-base';
 
 import navStyles from '../../styles/navStyles';
+import LoadingStyled from '../utils/LoadingStyled';
 
 class PostElement extends Component {
   // FIXME roberto if we update the title, we don't have it correctly updated
@@ -24,7 +25,7 @@ class PostElement extends Component {
 
   render() {
     const { Post, loading } = this.props;
-    if (loading) return <ActivityIndicator size="large" />;
+    if (loading) return <LoadingStyled />;
     return (
       <View style={styles.container}>
         <Text style={styles.bodyText}>{Post.body}</Text>

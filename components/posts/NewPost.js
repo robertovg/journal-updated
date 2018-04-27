@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, ActivityIndicator } from 'react-native';
+import { View } from 'react-native';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import PostForm from './PostForm';
 import navStyles from '../../styles/navStyles';
+import LoadingStyled from '../utils/LoadingStyled';
 
 class NewPost extends Component {
   static navigationOptions = {
@@ -43,13 +44,7 @@ class NewPost extends Component {
   render() {
     console.log(this.props.screenProps.user);
     return (
-      <View>
-        {this.state.loading ? (
-          <ActivityIndicator size="large" />
-        ) : (
-          <PostForm onSubmit={this.newPost} />
-        )}
-      </View>
+      <View>{this.state.loading ? <LoadingStyled /> : <PostForm onSubmit={this.newPost} />}</View>
     );
   }
 }

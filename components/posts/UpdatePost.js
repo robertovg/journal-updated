@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, ActivityIndicator } from 'react-native';
+import { View } from 'react-native';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import navStyles from '../../styles/navStyles';
 import PostForm from './PostForm';
+import LoadingStyled from '../utils/LoadingStyled';
 
 class UpdatePost extends Component {
   static navigationOptions = {
@@ -41,7 +42,7 @@ class UpdatePost extends Component {
     return (
       <View>
         {this.state.loading ? (
-          <ActivityIndicator size="large" />
+          <LoadingStyled />
         ) : (
           <PostForm onSubmit={this.updatePost} post={this.props.Post} />
         )}
