@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "journal-updated",
+    "name": "Journal Updated",
     "description": "Updated version of Journal LevelUp tutorial output",
-    "slug": "journal-updated",
+    "slug": "journalUpdated",
     "privacy": "public",
     "sdkVersion": "27.0.0",
     "platforms": ["ios", "android"],

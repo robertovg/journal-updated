@@ -22,7 +22,7 @@ npm install -g exp
 * [ ] have the possibility of hiding the keyboard when clicking out of the Post textarea
 * [ ] Change color of indicators form IPhone ( network, time, etc)
 * [x] Fix the problem with `Nested React Native projects result in TypeError: undefined is not an object (evaluating self.fetch)` published in [react-native official github](https://github.com/facebook/react-native/issues/9599)
-* [ ] Using expo `react-native` branch to avoid expo problem
+* [x] Using expo `react-native` branch to avoid expo problem
 * [ ] Change styles for something like `styled-components`
 * [ ] Let's add some animations with something like [pose](https://popmotion.io/pose/learn/native-get-started/)
 * [x] Adding icon and splash for the app from expo

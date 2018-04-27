@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import { withApollo } from 'react-apollo';
 
 import CreateUser from './CreateUser';
@@ -22,7 +22,6 @@ class Login extends Component {
           }
           title={this.state.register ? 'Login' : 'Register'}
         />
-        <Text>v 0.11</Text>
       </View>
     );
   }
