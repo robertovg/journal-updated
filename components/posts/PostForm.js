@@ -41,7 +41,7 @@ class PostForm extends Component {
 }
 const styles = StyleSheet.create({
   body: {
-    height: 400,
+    height: 350,
     borderColor: '#333',
   },
 });

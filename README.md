@@ -29,7 +29,7 @@ exp publish
 * [x] Moving the graphcool url to a configurable property so we don't have to publish in the code. Resolved with `react-native-dotenv`
 * [ ] If we update the title, we don't have it correctly updated (Fixme)
 * [x] fix and align the loading
-* [ ] fix some styles in smaller IPhone
+* [x] fix some styles in smaller IPhone
 * [x] have the possibility of hiding the keyboard when clicking out of the Post textarea. Using `keyboardShouldPersistTaps` from `ScrollView`.
 * [ ] Change color of indicators form IPhone ( network, time, etc)
 * [x] Fix the problem with `Nested React Native projects result in TypeError: undefined is not an object (evaluating self.fetch)` published in [react-native official github](https://github.com/facebook/react-native/issues/9599)
