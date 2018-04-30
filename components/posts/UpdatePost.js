@@ -39,13 +39,11 @@ class UpdatePost extends Component {
   };
 
   render() {
-    return (
+    return this.state.loading ? (
+      <LoadingStyled />
+    ) : (
       <View>
-        {this.state.loading ? (
-          <LoadingStyled />
-        ) : (
-          <PostForm onSubmit={this.updatePost} post={this.props.Post} />
-        )}
+        <PostForm onSubmit={this.updatePost} post={this.props.Post} />
       </View>
     );
   }

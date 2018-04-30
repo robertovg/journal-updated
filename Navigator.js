@@ -28,7 +28,7 @@ const Navigator = StackNavigator({
 });
 
 const NavWrapper = ({ loading, user }) => {
-  if (loading) return LoadingStyled;
+  if (loading) return <LoadingStyled />;
   if (!user) return <Login />;
   return <Navigator screenProps={{ user }} />;
 };

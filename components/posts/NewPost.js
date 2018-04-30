@@ -43,8 +43,12 @@ class NewPost extends Component {
 
   render() {
     console.log(this.props.screenProps.user);
-    return (
-      <View>{this.state.loading ? <LoadingStyled /> : <PostForm onSubmit={this.newPost} />}</View>
+    return this.state.loading ? (
+      <LoadingStyled />
+    ) : (
+      <View>
+        <PostForm onSubmit={this.newPost} />
+      </View>
     );
   }
 }
