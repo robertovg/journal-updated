@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, Button, StatusBar } from 'react-native';
 import { withApollo } from 'react-apollo';
 import { Fab, Icon } from 'native-base';
 
@@ -23,8 +23,11 @@ class PostsHome extends Component {
   };
 
   render() {
+    // StatusBar This changes the color of the indicators from the mobile to light
+    // just when we are login
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
         <Posts {...this.props} />
         <Button
           onPress={() => {

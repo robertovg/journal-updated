@@ -31,9 +31,9 @@ exp publish
 * [x] fix and align the loading
 * [x] fix some styles in smaller IPhone
 * [x] have the possibility of hiding the keyboard when clicking out of the Post textarea. Using `keyboardShouldPersistTaps` from `ScrollView`.
-* [ ] Change color of indicators form IPhone ( network, time, etc)
+* [x] Change color of indicators form IPhone ( network, time, etc)
 * [x] Fix the problem with `Nested React Native projects result in TypeError: undefined is not an object (evaluating self.fetch)` published in [react-native official github](https://github.com/facebook/react-native/issues/9599)
-* [x] Using RN version of the preset for .babelrc to avoid problems with babel and polyfill and other weird errors
+* [x] Using RN version of the presets for .babelrc to avoid problems with babel and polyfill and other weird errors
 * [x] Using expo `react-native` branch to avoid expo problem
 * [ ] Change styles for something like `styled-components`
 * [ ] Let's add some animations with something like [pose](https://popmotion.io/pose/learn/native-get-started/)
