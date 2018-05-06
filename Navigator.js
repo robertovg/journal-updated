@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -12,7 +12,7 @@ import Login from './components/user/Login';
 import PostsHome from './components/posts/PostsHome';
 import LoadingStyled from './components/utils/LoadingStyled';
 
-const Navigator = StackNavigator({
+const Navigator = createStackNavigator({
   Home: {
     screen: PostsHome,
   },

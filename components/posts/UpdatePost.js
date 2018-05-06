@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -30,11 +31,14 @@ class UpdatePost extends Component {
       },
     })
       .then(() => {
-        navigation.goBack();
+        navigation.navigate('Post', {
+          id: Post.id,
+          title,
+        });
       })
       .catch(error => {
         this.setState({ loading: false });
-        console.log(error);
+        console.error(error);
       });
   };
 
