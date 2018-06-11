@@ -19,27 +19,30 @@ class UpdatePost extends Component {
     loading: false,
   };
 
-  updatePost = ({ title, body }) => {
+  updatePost = async ({ title, body }) => {
     const { updatePost, navigation, screenProps, Post } = this.props;
     this.setState({ loading: true });
-    updatePost({
-      variables: {
-        id: Post.id,
-        title,
-        body,
-        userId: screenProps.user.id,
-      },
-    })
-      .then(() => {
-        navigation.navigate('Post', {
+    try {
+      await updatePost({
+        variables: {
           id: Post.id,
           title,
-        });
-      })
-      .catch(error => {
-        this.setState({ loading: false });
-        console.error(error);
+          body,
+          userId: screenProps.user.id,
+        },
       });
+      navigation.navigate('Post', {
+        id: Post.id,
+        title,
+      });
+    } catch (error) {
+      console.log(error);
+      throw Error('Problem updating the Post');
+    } finally {
+      this.setState({
+        loading: false,
+      });
+    }
   };
 
   render() {

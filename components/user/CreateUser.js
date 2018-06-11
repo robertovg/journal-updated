@@ -19,8 +19,11 @@ class CreateUser extends Component {
       });
       signIn(signin.data.signinUser.token);
       client.resetStore();
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.error(error);
+      // I know, very hard assumption...
+      // but just to don't omit the exception and show to the user
+      throw Error('Username already used');
     }
   };
 

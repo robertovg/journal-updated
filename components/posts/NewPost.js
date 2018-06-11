@@ -16,29 +16,29 @@ class NewPost extends Component {
   state = {
     loading: false,
   };
-  newPost = ({ title, body }) => {
+  newPost = async ({ title, body }) => {
     this.setState({
       loading: true,
     });
     const { newPost, navigation, screenProps } = this.props;
-    newPost({
-      variables: {
-        title,
-        body,
-        userId: screenProps.user.id,
-      },
-    })
-      .then(() => {
-        navigation.goBack();
-      })
-      .catch(error => {
-        console.log(error);
-      })
-      .finally(() => {
-        this.setState({
-          loading: false,
-        });
+
+    try {
+      await newPost({
+        variables: {
+          title,
+          body,
+          userId: screenProps.user.id,
+        },
       });
+      navigation.goBack();
+    } catch (error) {
+      console.error(error);
+      throw Error('Problem creating the Post');
+    } finally {
+      this.setState({
+        loading: false,
+      });
+    }
   };
 
   render() {

@@ -36,9 +36,10 @@ exp publish
 * [x] Using RN version of the presets for .babelrc to avoid problems with babel and polyfill and other weird errors
 * [x] Using expo `react-native` branch to avoid expo problem
 * [x] Adding icon and splash for the app from expo
-* [ ] Show errors, connecting problems, login, create user, etc.
+* [x] Show errors, connecting problems, login, create user, etc.
+* [x] Add validation to the login form so we don't allow to register with empty email / password
+* [x] Moving create / update post to async / await API style.
 * [ ] Possibility to be able to delete posts
 * [ ] Change styles for something like `styled-components`
 * [ ] Let's add some animations with something like [pose](https://popmotion.io/pose/learn/native-get-started/)
-* [ ] Add validation to the login form so we don't allow to register with empty email / password
 * [ ] Add unit test specific for graphql

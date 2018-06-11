@@ -16,8 +16,9 @@ class LoginUser extends Component {
       });
       signIn(signin.data.signinUser.token);
       client.resetStore();
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.error(error);
+      throw Error('Wrong credentials');
     }
   };
 

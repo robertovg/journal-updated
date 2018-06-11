@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Button, ScrollView } from 'react-native';
+import { StyleSheet, Button, ScrollView, Alert } from 'react-native';
 import { Form, Item, Input, Label } from 'native-base';
 
 class PostForm extends Component {
@@ -10,10 +10,15 @@ class PostForm extends Component {
   };
 
   submitForm = () => {
-    this.props.onSubmit({
-      title: this.state.title,
-      body: this.state.body,
-    });
+    this.props
+      .onSubmit({
+        title: this.state.title,
+        body: this.state.body,
+      })
+      .catch((error = {}) => {
+        const { message } = error;
+        Alert.alert(message, undefined, [{ text: 'Try Again' }], { cancelable: false });
+      });
   };
 
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-native';
+import { Button, Alert } from 'react-native';
 import { Form, Item, Input, Label } from 'native-base';
 
 class UserForm extends Component {
@@ -9,34 +9,49 @@ class UserForm extends Component {
     password: '',
   };
 
+  isEmailValid = () => !!this.state.email.match(/@/);
+  isPasswordValid = () => this.state.password.length > 5;
+
   submitForm = () => {
     const { email, password } = this.state;
-    this.props.onSubmit({
-      email,
-      password,
-    });
+    this.props
+      .onSubmit({
+        email,
+        password,
+      })
+      .catch((error = {}) => {
+        const { message } = error;
+        Alert.alert(message, undefined, [{ text: 'Try Again' }], { cancelable: false });
+      });
   };
 
   render() {
+    const { email, password } = this.state;
+    const [emailValid, passwordValid] = [this.isEmailValid(), this.isPasswordValid()];
     return (
       <Form>
-        <Item floatingLabel>
+        <Item floatingLabel success={emailValid}>
           <Label>Email</Label>
           <Input
             keyboardType="email-address"
-            value={this.state.email}
-            onChangeText={email => this.setState({ email })}
+            value={email}
+            onChangeText={val => this.setState({ email: val })}
           />
         </Item>
-        <Item floatingLabel>
+        <Item floatingLabel success={passwordValid}>
           <Label>Password</Label>
           <Input
             secureTextEntry
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+            value={password}
+            onChangeText={val => this.setState({ password: val })}
           />
         </Item>
-        <Button title={this.props.type} onPress={this.submitForm} />
+        <Button
+          title={this.props.type}
+          onPress={this.submitForm}
+          color="#82D8D8"
+          disabled={!passwordValid || !emailValid}
+        />
       </Form>
     );
   }
