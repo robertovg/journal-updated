@@ -1,8 +1,12 @@
 # Intro
 
-This is an updated version of the output of the levelUpTuts tutorial called [Level 2 React Native With Graphql](https://www.leveluptutorials.com/tutorials/level-2-react-native-with-graphql).
+This is a continuation and updated version of the output from the levelUpTuts tutorial called [Level 2 React Native With Graphql](https://www.leveluptutorials.com/tutorials/level-2-react-native-with-graphql).
 
-Basically is a continuation with the both `expo` and `react-native-scripts` and additional little improvements I wanted to put in practice with this good and complete exercise finished after the tutorial from [Scott Tolinski](http://scotttolinski.com/).
+Basically here you will find the next steps, as far as I understand, I would follow to move the output of this tutorial to be used as a real application with both, `expo` and `react-native-scripts`, and additional little improvements I wanted to put in practice with this good and complete exercise as code base, after having finished the [Scott Tolinski](http://scotttolinski.com/) tutorial.
+
+So if you feel like there are some parts missing before feeling ready to write real React Native Applications, maybe here you could get some tips to improve.
+
+I'm writing in [my personal](https://robertovg.com/blog/next-steps-after-level-2-react-native-with-graphql-part1) blog about this project where you can find more details to it.
 
 ## Development Usage
 
