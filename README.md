@@ -6,7 +6,7 @@ Basically here you will find the next steps, as far as I understand, I would fol
 
 So if you feel like there are some parts missing before feeling ready to write real React Native Applications, maybe here you could get some tips to improve.
 
-I'm writing in [my personal](https://robertovg.com/blog/next-steps-after-level-2-react-native-with-graphql-part1) blog about this project where you can find more details to it.
+I'm writing in [my personal](https://robertovg.com/blog/next-steps-after-level-2-react-native-with-graphql-part1) blog about this project where you can find more details.
 
 ## Development Usage
 
